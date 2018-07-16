@@ -17,4 +17,4 @@ var burger = {
         })
     }
 }
-modules.export
+module.exports = burger
