@@ -11,21 +11,36 @@ router.get("/api/burgers", function(req, res){
 
 router.get("/", function(req, res){
     burger.all(function(data){
-        res.send(JSON.stringify(data))
+        var obj = {
+            burgers: data
+        }
+        console.log(obj)
+        res.render("index", obj)
+    })
+})
+router.get("/api/burgers", function(req, res){
+    burger.all(function(data){
+        var obj = {
+            burgers: data
+        }
+        console.log(obj)
+        res.json(obj)
     })
 })
 
 router.post("/api/burgers", function(req, res){
-    burger.create(req.body.burger_name, function(result){
-            console.log(result.burger)
-            res.end()
-    })
+    console.log(req.body.burger_name)
+    var newBurger = req.body.burger_name
+     burger.create(newBurger, function(result){
+             console.log(result.burger)
+             res.json({ id: result.insertId})
+     })
 })
 
 router.put("/api/burgers/:id", function(req, res){
-    burger.create(req.params.id, function(result){
-            console.log(result.id)
-            res.end()
+    burger.update(req.params.id, function(result){
+            res.json(result)
+
     })
 })
 

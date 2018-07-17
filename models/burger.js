@@ -6,12 +6,12 @@ var burger = {
             cb(res)
         })
     }, 
-    create: function(cb){
+    create: function(burger_name, cb){
         orm.insertOne(burger_name, function(res){
             cb(res)
         })
     }, 
-    update: function(cb){
+    update: function(id, cb){
         orm.updateOne(id, function(res){
             cb(res)
         })
