@@ -1,0 +1,1 @@
+This app uses orm, node.js, mysql and express-handlebars to create an app that allows the user to enter the name of a burger, and add that burger to the mysql db. the contents of the database are then displayed on the home page of the app. The user can press the devour button to move the burger selected from the must try list to the devoured list
